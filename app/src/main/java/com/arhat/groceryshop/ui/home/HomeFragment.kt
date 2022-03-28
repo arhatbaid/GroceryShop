@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.arhat.groceryshop.databinding.FragmentHomeBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private val homeViewModel: HomeViewModel by viewModels()
     private var binding: FragmentHomeBinding? = null
 
     override fun onCreateView(
@@ -20,9 +20,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
-
         val fragmentBinding = FragmentHomeBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         return fragmentBinding.root
@@ -36,13 +33,13 @@ class HomeFragment : Fragment() {
                 view.context,
                 LinearLayoutManager.VERTICAL, false)
             adapter = homeAdapter
-            subscribeUi(homeAdapter)
         }
+        subscribeUi(homeAdapter)
     }
 
     private fun subscribeUi(adapter: HomeAdapter) {
-        homeViewModel.homeItemList.observe(viewLifecycleOwner) { plants ->
-            adapter.submitList(plants)
+        homeViewModel.homeItemList.observe(viewLifecycleOwner) { homeItems ->
+            adapter.submitList(homeItems)
         }
     }
 

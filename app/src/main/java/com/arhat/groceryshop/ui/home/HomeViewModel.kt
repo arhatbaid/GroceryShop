@@ -14,6 +14,16 @@ class HomeViewModel : ViewModel() {
     val homeItemList: LiveData<List<HomeItem>> = _homeItemList
 
     private fun addItemsToRecyclerViewArrayList(): List<HomeItem> {
-        return List(10) { i -> HomeItem("Item $i", arrayListOf())  }
+        return List(10) { i -> HomeItem("Item $i", addProductToRecyclerViewArrayList())  }
     }
+
+    private val _homeItemProductList = MutableLiveData<ArrayList<Product>>().apply {
+        value = addProductToRecyclerViewArrayList()
+    }
+    val homeItemProductList: LiveData<ArrayList<Product>> = _homeItemProductList
+
+    private fun addProductToRecyclerViewArrayList(): ArrayList<Product> {
+        return ArrayList(List(10) { i -> Product("Name $i","Description", "$i", "$i")  })
+    }
+
 }
