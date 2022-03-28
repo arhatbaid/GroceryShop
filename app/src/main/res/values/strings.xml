@@ -3,4 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+
+
+    <string name="home_category_exclusive_offer">Exclusive Offer</string>
+    <string name="see_all">See All</string>
+    <string name="desc_product_image">Product Image</string>
 </resources>
