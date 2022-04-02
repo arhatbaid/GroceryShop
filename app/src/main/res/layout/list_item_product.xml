@@ -13,43 +13,67 @@
     </data>
 
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:onClick="@{clickListener}"
-        android:gravity="center">
+        android:layout_marginHorizontal="@dimen/activity_vertical_margin_half">
 
         <ImageView
             android:id="@+id/img_product"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_home_black_24dp"
-            android:contentDescription="@string/desc_product_image" />
+            android:contentDescription="@string/desc_product_image"
+            android:src="@drawable/ic_product_thumbnil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin_half"
+            android:text="@{product.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_product"
+            tools:text="Banana" />
 
         <TextView
             android:id="@+id/tv_product_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="@dimen/activity_vertical_margin_half"
-            tools:text="7pc"
             android:text="@{product.quantity}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_product" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
+            tools:text="7pc" />
 
         <TextView
             android:id="@+id/tv_product_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="@dimen/activity_vertical_margin_half"
-            tools:text="7pc"
             android:text="@{product.price}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_product_quantity" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_quantity"
+            tools:text="$4.50" />
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/btnAddProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin_half"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/ic_drawable_add_product_button"
+            android:src="@drawable/ic_add_product"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_quantity" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
