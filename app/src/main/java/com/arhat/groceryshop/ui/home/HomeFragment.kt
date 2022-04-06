@@ -36,10 +36,6 @@ class HomeFragment : Fragment() {
                     LinearLayoutManager.VERTICAL, false)
                 adapter = homeAdapter
             }
-            viewPagerHome.apply {
-                adapter = HomeViewPagerAdapter()
-                orientation = ViewPager2.ORIENTATION_HORIZONTAL
-            }
         }
         subscribeUi(homeAdapter)
     }

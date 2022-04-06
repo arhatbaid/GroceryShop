@@ -29,15 +29,6 @@
     <include
         layout="@layout/search_view"/>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPagerHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_vertical_margin"
-        android:layout_marginEnd="@dimen/activity_vertical_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHome"
         android:layout_width="match_parent"
